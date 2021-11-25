@@ -4,6 +4,22 @@
     --text-color: #222;
     --primary-color: #ff385c;
 }
+@keyframes zoomout {
+    0% {
+        width: 850px;
+    }
+    100% {
+        width: 300px;
+    }
+}
+@keyframes zoomin {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 850px;
+    }
+}
 
 html {
     font-size: 62.5%;
@@ -21,6 +37,14 @@ html {
     background-repeat: no-repeat;
     background-position: bottom;
     background-size: cover;
+    position: relative;
+}
+.header__wrap {
+    height: 100%;
+    position: relative;
+}
+.header-top__wrap {
+    /* display: none; */
 }
 .header-top {
     width: 100%;
@@ -28,6 +52,7 @@ html {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 30px;
 }
 .header-top__logo {
     width: 250px;
@@ -68,7 +93,7 @@ html {
     padding: 10px 16px;
     /* opacity: 0.8; */
     cursor: pointer;
-    text-shadow: 2px 2px 4px #000000;
+    text-shadow: 0 0 5px #000000;
 }
 .header-top__nav-item .line.active {
     opacity: 1;
@@ -95,7 +120,7 @@ html {
     padding: 12px;
     border-radius: 20px;
     text-decoration: none;
-    text-shadow: 2px 2px 4px #000000;
+    text-shadow: 0 0 5px #000000;
 }
 .header-top__login-link:hover,
 .header-top__login-button:hover {
@@ -113,6 +138,7 @@ html {
     font-size: 2.8rem;
     padding: 5px 5px 5px 15px;
     margin-left: 10px;
+    border: 1px solid #ddd;
     border-radius: 21px;
     display: flex;
     align-items: center;
@@ -131,7 +157,6 @@ html {
     border-radius: 32px;
     background-color: var(--white-color);
     box-shadow: 0px 16px 32px rgb(0 0 0 / 15%), 0px 3px 8px rgb(0 0 0 / 10%);
-    margin-bottom: 180px;
 }
 .header-search__list {
     height: 100%;
@@ -212,7 +237,10 @@ html {
     line-height: 5rem;
 }
 .header-body {
-    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 .header-body__title {
     color: var(--text-color);
@@ -235,6 +263,62 @@ html {
 }
 .header-body__button:hover {
     box-shadow: 0px 6px 20px rgb(0 0 0 / 20%);
+}
+.header-fixed {
+    width: 100%;
+    height: 80px;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    z-index: 100;
+    display: none;
+}
+.header-fixed__wrap {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-fixed__search {
+    width: 300px;
+    height: 48px;
+    border-radius: 40px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    position: relative;
+}
+.header-fixed__search span {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-color);
+    padding-left: 8px;
+}
+.header-fixed__search .header-search__button {
+    height: 35px;
+    width: 35px;
+}
+.header-fixed__search .header-search__button i {
+    line-height: 3.5rem;
+}
+.header-fixed__login-link {
+    color: var(--text-color);
+    text-shadow: none;
+}
+.header-fixed__login-link:hover,
+.header-fixed__login-button:hover {
+    color: var(--text-color);
+    background-color: #f7f7f7;
+}
+.header-fixed__login-button {
+    color: #000;
+    text-shadow: none;
+}
+.header-fixed__login-admin:hover {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;;
 }
 /* End Header */
 
@@ -287,14 +371,14 @@ html {
     font-size: 3rem;
     font-weight: 700;
     margin: 0 15px 10px;
-    text-shadow: 2px 2px 4px #000000;
+    text-shadow: 0 0 5px #000000;
 }
 .hotel-item__desc {
     color: #fff;
     font-size: 1.6rem;
     font-weight: 500;
     margin: 0 15px 10px;
-    text-shadow: 2px 2px 4px #000000;
+    text-shadow: 0 0 5px #000000;
 }
 .hotel-item__desc span {
     text-decoration: underline;
@@ -423,14 +507,14 @@ html {
     font-weight: 600;
     line-height: 3rem;
     margin-bottom: 10px;
-    text-shadow: 2px 2px 4px #000000;
+    text-shadow: 0 0 5px #000000;
 }
 .tour-item__desc {
     color: #fff;
     font-size: 1.6rem;
     font-weight: 400;
     margin-bottom: 10px;
-    text-shadow: 2px 2px 4px #000000;
+    text-shadow: 0 0 5px #000000;
 }
 .tourvn-item:first-child {
     grid-column: 1/3;

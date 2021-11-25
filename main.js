@@ -1,25 +1,26 @@
-const $ = document.querySelector.bind(document);
-const $$ = document.querySelectorAll.bind(document);
+// const $ = document.querySelector.bind(document);
+// const $$ = document.querySelectorAll.bind(document);
 
-const headerTopNavs = $$(".header-top__nav-item");
+// const headerTopNavs = $$(".header-top__nav-item");
 
-const headerTopNavActive = $(".header-top__nav-item.active");
-const line = $(".header-top__nav-list .line");
+// const headerTopNavActive = $(".header-top__nav-item.active");
+// const line = $(".header-top__nav-list .line");
 
-line.style.left = headerTopNavActive.offsetLeft + "px";
-line.style.width = headerTopNavActive.offsetWidth + "px";
+// line.style.left = headerTopNavActive.offsetLeft + "px";
+// line.style.width = headerTopNavActive.offsetWidth + "px";
 
-headerTopNavs.forEach((tab) => {
-    tab.onclick = function () {
-        headerTopNavActive.classList.remove("active");
+// headerTopNavs.forEach((tab) => {
+//     tab.onclick = function () {
+//         headerTopNavActive.classList.remove("active");
 
-        line.style.left = this.offsetLeft + "px";
-        line.style.width = this.offsetWidth + "px";
+//         line.style.left = this.offsetLeft + "px";
+//         line.style.width = this.offsetWidth + "px";
 
-        this.classList.add("active");
-    };
-});
+//         this.classList.add("active");
+//     };
+// });
 
+// slider 
 const slider = document.querySelector('.slider');
 const sliderMain = document.querySelector('.slider-main');
 const sliderItems = document.querySelectorAll('.slider-item');
@@ -66,3 +67,27 @@ function handleChangeSlider(dir) {
         index--;
     }
 };
+
+// Header
+const header = document.querySelector('#header');
+const headerTop = document.querySelector('.header-top');
+const headerSearch = document.querySelector('.header-search');
+const headerFixed = document.querySelector('.header-fixed');
+const headerFixedSearch = document.querySelector('.header-fixed__search');
+
+const headerTopHeight = headerTop.offsetHeight;
+const headerSearchWidthNew = headerFixedSearch.offsetLeft
+document.onscroll = function() {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    if (scrollTop >=  headerTopHeight*2/3) {
+        headerFixed.style.display = 'block';
+        Object.assign(headerSearch.style, {
+            display: 'none',
+        });
+    } else {
+        headerFixed.style.display = 'none';
+        Object.assign(headerSearch.style, {
+            display: 'block',
+        });
+    }
+}
